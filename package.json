@@ -17,7 +17,8 @@
   },
   "scripts": {
     "start": "node prototype.js",
-    "start:azure": "node azure.js"
+    "start:azure": "node azure.js",
+    "clean": "npx -y rimraf faiss_store"
   },
   "keywords": [],
   "author": "Yohan Lasorsa",
