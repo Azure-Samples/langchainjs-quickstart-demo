@@ -9,7 +9,6 @@ import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { ChatOllama } from "@langchain/community/chat_models/ollama";
 import { OllamaEmbeddings } from "@langchain/community/embeddings/ollama";
 import { FaissStore } from "@langchain/community/vectorstores/faiss";
-import { AzureChatOpenAI } from "@langchain/openai";
 
 // Load documents ------------------------------------------------------------
 
@@ -72,7 +71,7 @@ const stream = await chain.stream({
 
 // Print the result ----------------------------------------------------------
 
-console.log(`Chain result:\n`);
+console.log(`Result:\n`);
 for await (const chunk of stream) {
   process.stdout.write(chunk.answer ?? '');
 }
