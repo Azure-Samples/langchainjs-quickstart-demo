@@ -5,7 +5,7 @@ This demo explore the development process from idea to production, using a RAG-b
 
 The code comes in two versions:
 - The [local prototype](prototype.js), using FAISS and Ollama with the Llama2 model
-- The [production version](azure.js), using Azure AI Search and GPT-4-turbo
+- The [production version](azure.js), using Azure AI Search and GPT-4 Turbo
 
 ## Usage
 
