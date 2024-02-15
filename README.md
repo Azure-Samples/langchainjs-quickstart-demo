@@ -4,8 +4,8 @@ Discover the journey of building a generative AI application using LangChain.js 
 This demo explore the development process from idea to production, using a RAG-based approach for a Q&A system based on YouTube video transcripts.
 
 The code comes in two versions:
-- The local prototype, using FAISS and Ollama with the Llama2 model
-- The production version on Azure, using Azure AI Search and GPT-4-turbo
+- The [local prototype](blob/main/prototype.js), using FAISS and Ollama with the Llama2 model
+- The [production version](blob/main/azure.js), using Azure AI Search and GPT-4-turbo
 
 ## Usage
 
