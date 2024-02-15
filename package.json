@@ -16,7 +16,8 @@
     "youtubei.js": "^5.8.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node prototype.js",
+    "start:azure": "node azure.js"
   },
   "keywords": [],
   "author": "Yohan Lasorsa",
