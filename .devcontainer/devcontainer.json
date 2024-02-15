@@ -8,29 +8,10 @@
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   "features": {
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "20"
-    },
-    "ghcr.io/devcontainers/features/azure-cli:1": {
-      "version": "latest",
-      "installBicep": true
-    },
-    "ghcr.io/azure/azure-dev/azd:latest": {}
-  },
-
-  // Configure tool-specific properties.
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "ms-azuretools.azure-dev",
-        "ms-azuretools.vscode-bicep",
-        "esbenp.prettier-vscode"
-      ]
+    "ghcr.io/prulloac/devcontainer-features/ollama:1": {
+      "pull": "llama2"
     }
   },
-
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [4280, 7071],
 
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "npm install && npm install -g fuzz-run"
