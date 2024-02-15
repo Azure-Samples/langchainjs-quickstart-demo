@@ -21,6 +21,9 @@
     "clean": "npx -y rimraf faiss_store"
   },
   "keywords": [],
-  "author": "Yohan Lasorsa",
+  "author": {
+    "name": "Yohan Lasorsa",
+    "url": "https://twitter.com/sinedied"
+  },
   "license": "MIT"
 }
