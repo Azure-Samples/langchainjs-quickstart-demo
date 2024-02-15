@@ -49,10 +49,7 @@ if (!fs.existsSync(faissFolder)) {
 console.log("Running the chain...");
 
 const questionAnsweringPrompt = ChatPromptTemplate.fromMessages([
-  [
-    "system",
-    "Answer the questions based on the sources below:\n\n{context}",
-  ],
+  ["system", "Answer the questions based on the sources below:\n\n{context}"],
   ["human", "{input}"],
 ]);
 const combineDocsChain = await createStuffDocumentsChain({

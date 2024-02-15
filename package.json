@@ -16,8 +16,8 @@
     "youtubei.js": "^5.8.0"
   },
   "scripts": {
-    "start": "node prototype.js",
-    "start:azure": "node azure.js",
+    "start": "node src/prototype.js",
+    "start:azure": "node src/azure.js",
     "clean": "npx -y rimraf faiss_store"
   },
   "keywords": [],
