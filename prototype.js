@@ -1,5 +1,5 @@
 import fs from "node:fs";
-import 'dotenv/config';
+import "dotenv/config";
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
 import { createRetrievalChain } from "langchain/chains/retrieval";
 import { YoutubeLoader } from "langchain/document_loaders/web/youtube";
@@ -10,11 +10,13 @@ import { ChatOllama } from "@langchain/community/chat_models/ollama";
 import { OllamaEmbeddings } from "@langchain/community/embeddings/ollama";
 import { FaissStore } from "@langchain/community/vectorstores/faiss";
 
+const YOUTUBE_VIDEO_URL = "https://www.youtube.com/watch?v=FZhbJZEgKQ4";
+
 // Load documents ------------------------------------------------------------
 
 console.log("Loading documents...");
 
-const loader = YoutubeLoader.createFromUrl("https://www.youtube.com/watch?v=FZhbJZEgKQ4", {
+const loader = YoutubeLoader.createFromUrl(YOUTUBE_VIDEO_URL, {
   language: "en",
   addVideoInfo: true,
 });
@@ -52,10 +54,7 @@ const questionAnsweringPrompt = ChatPromptTemplate.fromMessages([
     "system",
     "Answer the user's questions based on the below context:\n\n{context}",
   ],
-  [
-    "human",
-    "{input}"
-  ],
+  ["human", "{input}"],
 ]);
 const combineDocsChain = await createStuffDocumentsChain({
   llm: model,
@@ -73,6 +72,6 @@ const stream = await chain.stream({
 
 console.log(`Result:\n`);
 for await (const chunk of stream) {
-  process.stdout.write(chunk.answer ?? '');
+  process.stdout.write(chunk.answer ?? "");
 }
 console.log();

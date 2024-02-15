@@ -30,7 +30,7 @@ You need to create a `.env` file with the following content:
 export AZURE_AISEARCH_ENDPOINT=https://<your-service-name>.search.windows.net
 export AZURE_AISEARCH_KEY=<your-aisearch-key>
 export AZURE_OPENAI_API_KEY=<your-openai-key>
-export AZURE_OPENAI_ENDPOINT=<your-openai-endpoint>
+export AZURE_OPENAI_API_ENDPOINT=<your-openai-endpoint>
 export AZURE_OPENAI_API_DEPLOYMENT_NAME="gpt-4-turbo"
 export AZURE_OPENAI_API_EMBEDDINGS_DEPLOYMENT_NAME="text-embedding-ada-002"
 ```

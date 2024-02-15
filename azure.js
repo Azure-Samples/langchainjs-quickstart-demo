@@ -1,21 +1,24 @@
-import fs from "node:fs";
-import 'dotenv/config';
+import "dotenv/config";
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
 import { createRetrievalChain } from "langchain/chains/retrieval";
 import { YoutubeLoader } from "langchain/document_loaders/web/youtube";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 
-import { ChatOllama } from "@langchain/community/chat_models/ollama";
-import { OllamaEmbeddings } from "@langchain/community/embeddings/ollama";
-import { FaissStore } from "@langchain/community/vectorstores/faiss";
-import { AzureChatOpenAI } from "@langchain/openai";
+import { AzureChatOpenAI } from "@langchain/azure-openai";
+import { AzureOpenAIEmbeddings } from "@langchain/azure-openai";
+import {
+  AzureAISearchVectorStore,
+  AzureAISearchQueryType,
+} from "@langchain/community/vectorstores/azure_aisearch";
+
+const YOUTUBE_VIDEO_URL = "https://www.youtube.com/watch?v=FZhbJZEgKQ4";
 
 // Load documents ------------------------------------------------------------
 
 console.log("Loading documents...");
 
-const loader = YoutubeLoader.createFromUrl("https://www.youtube.com/watch?v=FZhbJZEgKQ4", {
+const loader = YoutubeLoader.createFromUrl(YOUTUBE_VIDEO_URL, {
   language: "en",
   addVideoInfo: true,
 });
@@ -30,18 +33,25 @@ const documents = await splitter.splitDocuments(rawDocuments);
 
 console.log("Initializing models and DB...");
 
-const embeddings = new OllamaEmbeddings({ model: "llama2" });
-const model = new ChatOllama({ model: "llama2" });
+const embeddings = new AzureOpenAIEmbeddings({
+  modelName: "text-embedding-ada-002",
+});
+const model = new AzureChatOpenAI({ modelName: "gpt-4" });
+const vectorStore = new AzureAISearchVectorStore(embeddings, {
+  search: {
+    type: AzureAISearchQueryType.SimilarityHybrid,
+  },
+});
 
-const faissFolder = "faiss_store";
-let vectorStore;
+// Search if documents already exist for the source video
+const videoId = YOUTUBE_VIDEO_URL.split("v=")[1];
+const indexedDocuments = await vectorStore.similaritySearch("*", 1, {
+  filterExpression: `metadata/source eq '${videoId}'`,
+});
 
-if (!fs.existsSync(faissFolder)) {
+if (indexedDocuments.length === 0) {
   console.log("Embedding documents...");
-  vectorStore = await FaissStore.fromDocuments(documents, embeddings);
-  vectorStore.save("faiss_store");
-} else {
- vectorStore = await FaissStore.load("faiss_store", embeddings);
+  await vectorStore.addDocuments(documents);
 }
 
 // Run the chain -------------------------------------------------------------
@@ -53,10 +63,7 @@ const questionAnsweringPrompt = ChatPromptTemplate.fromMessages([
     "system",
     "Answer the user's questions based on the below context:\n\n{context}",
   ],
-  [
-    "human",
-    "{input}"
-  ],
+  ["human", "{input}"],
 ]);
 const combineDocsChain = await createStuffDocumentsChain({
   llm: model,
@@ -72,8 +79,8 @@ const stream = await chain.stream({
 
 // Print the result ----------------------------------------------------------
 
-console.log(`Chain result:\n`);
+console.log(`Result:\n`);
 for await (const chunk of stream) {
-  process.stdout.write(chunk.answer ?? '');
+  process.stdout.write(chunk.answer ?? "");
 }
 console.log();
