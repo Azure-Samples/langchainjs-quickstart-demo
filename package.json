@@ -1,0 +1,24 @@
+{
+  "name": "langchainjs-quickstart-demo",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "dependencies": {
+    "@langchain/azure-openai": "^0.0.1",
+    "@langchain/community": "^0.0.28",
+    "@langchain/openai": "^0.0.14",
+    "dotenv": "^16.4.4",
+    "faiss-node": "^0.5.1",
+    "langchain": "^0.1.18",
+    "youtube-transcript": "^1.0.6",
+    "youtubei.js": "^5.8.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Yohan Lasorsa",
+  "license": "MIT"
+}
