@@ -33,14 +33,10 @@ const documents = await splitter.splitDocuments(rawDocuments);
 
 console.log("Initializing models and DB...");
 
-const embeddings = new AzureOpenAIEmbeddings({
-  modelName: "text-embedding-ada-002",
-});
-const model = new AzureChatOpenAI({ modelName: "gpt-4" });
+const embeddings = new AzureOpenAIEmbeddings();
+const model = new AzureChatOpenAI();
 const vectorStore = new AzureAISearchVectorStore(embeddings, {
-  search: {
-    type: AzureAISearchQueryType.SimilarityHybrid,
-  },
+  search: { type: AzureAISearchQueryType.SimilarityHybrid },
 });
 
 // Search if documents already exist for the source video
@@ -61,7 +57,7 @@ console.log("Running the chain...");
 const questionAnsweringPrompt = ChatPromptTemplate.fromMessages([
   [
     "system",
-    "Answer the user's questions based on the below context:\n\n{context}",
+    "Answer the questions based on the sources below:\n\n{context}",
   ],
   ["human", "{input}"],
 ]);
@@ -74,7 +70,7 @@ const chain = await createRetrievalChain({
   combineDocsChain,
 });
 const stream = await chain.stream({
-  input: "What can you do with the new Copilot announcement?",
+  input: "What are the big announcements about Copilot?",
 });
 
 // Print the result ----------------------------------------------------------

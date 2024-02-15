@@ -6,10 +6,6 @@ dist/
 # Logs
 logs
 *.log
-npm-debug.log*
-pnpm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
 # Deployment
 *.env
@@ -18,5 +14,4 @@ yarn-error.log*
 # Misc
 .DS_Store
 faiss_store
-.indexed
 

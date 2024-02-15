@@ -26,13 +26,13 @@ npm start
 
 You need to create a `.env` file with the following content:
 
-```env
-export AZURE_AISEARCH_ENDPOINT=https://<your-service-name>.search.windows.net
-export AZURE_AISEARCH_KEY=<your-aisearch-key>
-export AZURE_OPENAI_API_KEY=<your-openai-key>
-export AZURE_OPENAI_API_ENDPOINT=<your-openai-endpoint>
-export AZURE_OPENAI_API_DEPLOYMENT_NAME="gpt-4-turbo"
-export AZURE_OPENAI_API_EMBEDDINGS_DEPLOYMENT_NAME="text-embedding-ada-002"
+```bash
+AZURE_AISEARCH_ENDPOINT=https://<your-service-name>.search.windows.net
+AZURE_AISEARCH_KEY=<your-aisearch-key>
+AZURE_OPENAI_API_KEY=<your-openai-key>
+AZURE_OPENAI_API_ENDPOINT=<your-openai-endpoint>
+AZURE_OPENAI_API_DEPLOYMENT_NAME="gpt4-turbo"
+AZURE_OPENAI_API_EMBEDDINGS_DEPLOYMENT_NAME="text-embedding-ada-002"
 ```
 
 Then run:

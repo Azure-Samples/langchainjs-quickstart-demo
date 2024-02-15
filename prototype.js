@@ -1,5 +1,4 @@
 import fs from "node:fs";
-import "dotenv/config";
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
 import { createRetrievalChain } from "langchain/chains/retrieval";
 import { YoutubeLoader } from "langchain/document_loaders/web/youtube";
@@ -52,7 +51,7 @@ console.log("Running the chain...");
 const questionAnsweringPrompt = ChatPromptTemplate.fromMessages([
   [
     "system",
-    "Answer the user's questions based on the below context:\n\n{context}",
+    "Answer the questions based on the sources below:\n\n{context}",
   ],
   ["human", "{input}"],
 ]);
@@ -65,7 +64,7 @@ const chain = await createRetrievalChain({
   combineDocsChain,
 });
 const stream = await chain.stream({
-  input: "What can you do with the new Copilot announcement?",
+  input: "What are the big announcements about Copilot?",
 });
 
 // Print the result ----------------------------------------------------------
