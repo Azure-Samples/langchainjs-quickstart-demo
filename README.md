@@ -7,7 +7,7 @@ The code comes in two versions:
 - The [local prototype](prototype.js), using FAISS and Ollama with the Llama2 model
 - The [production version](azure.js), using Azure AI Search and GPT-4 Turbo
 
-## Usage
+## Installation
 
 You need [Node.js](https://nodejs.org/en) and [Ollama](https://ollama.com/download) installed to run this demo.
 
@@ -53,7 +53,7 @@ AZURE_OPENAI_API_DEPLOYMENT_NAME="gpt4-turbo"
 AZURE_OPENAI_API_EMBEDDINGS_DEPLOYMENT_NAME="text-embedding-ada-002"
 ```
 
-Then run:
+Then you can run:
 
 ```bash
 npm run start:azure
