@@ -38,3 +38,5 @@ Discover the journey of building a generative AI application using LangChain.js 
 
 - Summary
 - Next steps
+  * Lead in to LangChain.js serverless AI sample (if ready)
+  * Lead in to session about the JS IA Sample?
