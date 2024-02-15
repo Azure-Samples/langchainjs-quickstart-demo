@@ -18,4 +18,5 @@ yarn-error.log*
 # Misc
 .DS_Store
 faiss_store
+.indexed
 

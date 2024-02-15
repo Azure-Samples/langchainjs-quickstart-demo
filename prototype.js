@@ -40,7 +40,7 @@ if (!fs.existsSync(faissFolder)) {
   vectorStore = await FaissStore.fromDocuments(documents, embeddings);
   vectorStore.save("faiss_store");
 } else {
- vectorStore = await FaissStore.load("faiss_store", embeddings);
+  vectorStore = await FaissStore.load("faiss_store", embeddings);
 }
 
 // Run the chain -------------------------------------------------------------
