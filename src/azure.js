@@ -13,6 +13,7 @@ import {
 } from "@langchain/community/vectorstores/azure_aisearch";
 
 const YOUTUBE_VIDEO_URL = "https://www.youtube.com/watch?v=FZhbJZEgKQ4";
+const QUESTION = "What are the news about GPT-4 models?";
 
 // Load documents ------------------------------------------------------------
 
@@ -55,24 +56,22 @@ if (indexedDocuments.length === 0) {
 console.log("Running the chain...");
 
 const questionAnsweringPrompt = ChatPromptTemplate.fromMessages([
-  ["system", "Answer the user's question based on the sources below:\n\n{context}"],
+  ["system", "Answer the user's question using only the sources below:\n\n{context}"],
   ["human", "{input}"],
 ]);
 const combineDocsChain = await createStuffDocumentsChain({
-  llm: model,
   prompt: questionAnsweringPrompt,
+  llm: model,
 });
 const chain = await createRetrievalChain({
   retriever: vectorStore.asRetriever(),
   combineDocsChain,
 });
-const stream = await chain.stream({
-  input: "What are the news about GPT-4 models?",
-});
+const stream = await chain.stream({ input: QUESTION });
 
 // Print the result ----------------------------------------------------------
 
-console.log(`Result:\n`);
+console.log(`Answer for the question "${QUESTION}":\n`);
 for await (const chunk of stream) {
   process.stdout.write(chunk.answer ?? "");
 }
