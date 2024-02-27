@@ -32,24 +32,17 @@ console.log("Initializing models and DB...");
 
 const embeddings = new OllamaEmbeddings({ model: "all-minilm:l6-v2" });
 const model = new ChatOllama({ model: "llama2" });
+const vectorStore = await new FaissStore(embeddings, {});
 
-const faissFolder = "faiss_store";
-let vectorStore;
-
-if (!fs.existsSync(faissFolder)) {
-  console.log("Embedding documents...");
-  vectorStore = await FaissStore.fromDocuments(documents, embeddings);
-  vectorStore.save("faiss_store");
-} else {
-  vectorStore = await FaissStore.load("faiss_store", embeddings);
-}
+console.log("Embedding documents...");
+vectorStore.addDocuments(documents);
 
 // Run the chain -------------------------------------------------------------
 
 console.log("Running the chain...");
 
 const questionAnsweringPrompt = ChatPromptTemplate.fromMessages([
-  ["system", "Answer the user's questions based on the sources below:\n\n{context}"],
+  ["system", "Answer the user's question based on the sources below:\n\n{context}"],
   ["human", "{input}"],
 ]);
 const combineDocsChain = await createStuffDocumentsChain({

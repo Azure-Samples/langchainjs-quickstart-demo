@@ -17,8 +17,7 @@
   },
   "scripts": {
     "start": "node src/prototype.js",
-    "start:azure": "node src/azure.js",
-    "clean": "npx -y rimraf faiss_store"
+    "start:azure": "node src/azure.js"
   },
   "keywords": [],
   "author": {
