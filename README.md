@@ -4,8 +4,8 @@ Discover the journey of building a generative AI application using LangChain.js 
 This demo explore the development process from idea to production, using a RAG-based approach for a Q&A system based on YouTube video transcripts.
 
 The code comes in two versions:
-- The [local prototype](src/prototype.js), using FAISS and Ollama with the Llama2 model
-- The [Azure cloud version](src/azure.js), using Azure AI Search and GPT-4 Turbo
+- [local prototype](src/prototype.js): uses FAISS and Ollama with llama2 model for completion and all-minilm-l6-v2 for embeddings
+- [Azure cloud version](src/azure.js): uses Azure AI Search and GPT-4 Turbo model for completion and text-embedding-ada-002 for embeddings
 
 ## Installation
 
@@ -14,6 +14,7 @@ You need [Node.js](https://nodejs.org/en) and [Ollama](https://ollama.com/downlo
 ```bash
 npm install
 ollama pull llama2
+ollama pull all-minilm:l6-v2
 ```
 
 ## Running the local prototype

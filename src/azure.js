@@ -24,8 +24,8 @@ const loader = YoutubeLoader.createFromUrl(YOUTUBE_VIDEO_URL, {
 });
 const rawDocuments = await loader.load();
 const splitter = new RecursiveCharacterTextSplitter({
-  chunkSize: 1000,
-  chunkOverlap: 200,
+  chunkSize: 2000,
+  chunkOverlap: 400,
 });
 const documents = await splitter.splitDocuments(rawDocuments);
 
@@ -55,7 +55,7 @@ if (indexedDocuments.length === 0) {
 console.log("Running the chain...");
 
 const questionAnsweringPrompt = ChatPromptTemplate.fromMessages([
-  ["system", "Answer the questions based on the sources below:\n\n{context}"],
+  ["system", "Answer the user's questions based on the sources below:\n\n{context}"],
   ["human", "{input}"],
 ]);
 const combineDocsChain = await createStuffDocumentsChain({
@@ -67,7 +67,7 @@ const chain = await createRetrievalChain({
   combineDocsChain,
 });
 const stream = await chain.stream({
-  input: "What are the big announcements about Copilot?",
+  input: "What are the news about GPT-4 models?",
 });
 
 // Print the result ----------------------------------------------------------

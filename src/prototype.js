@@ -21,8 +21,8 @@ const loader = YoutubeLoader.createFromUrl(YOUTUBE_VIDEO_URL, {
 });
 const rawDocuments = await loader.load();
 const splitter = new RecursiveCharacterTextSplitter({
-  chunkSize: 1000,
-  chunkOverlap: 200,
+  chunkSize: 2000,
+  chunkOverlap: 400,
 });
 const documents = await splitter.splitDocuments(rawDocuments);
 
@@ -30,7 +30,7 @@ const documents = await splitter.splitDocuments(rawDocuments);
 
 console.log("Initializing models and DB...");
 
-const embeddings = new OllamaEmbeddings({ model: "llama2" });
+const embeddings = new OllamaEmbeddings({ model: "all-minilm:l6-v2" });
 const model = new ChatOllama({ model: "llama2" });
 
 const faissFolder = "faiss_store";
@@ -49,7 +49,7 @@ if (!fs.existsSync(faissFolder)) {
 console.log("Running the chain...");
 
 const questionAnsweringPrompt = ChatPromptTemplate.fromMessages([
-  ["system", "Answer the questions based on the sources below:\n\n{context}"],
+  ["system", "Answer the user's questions based on the sources below:\n\n{context}"],
   ["human", "{input}"],
 ]);
 const combineDocsChain = await createStuffDocumentsChain({
@@ -61,7 +61,7 @@ const chain = await createRetrievalChain({
   combineDocsChain,
 });
 const stream = await chain.stream({
-  input: "What are the big announcements about Copilot?",
+  input: "What are the news about GPT-4 models?",
 });
 
 // Print the result ----------------------------------------------------------
