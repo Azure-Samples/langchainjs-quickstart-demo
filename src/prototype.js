@@ -1,4 +1,4 @@
-import fs from "node:fs";
+import "dotenv/config";
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
 import { createRetrievalChain } from "langchain/chains/retrieval";
 import { YoutubeLoader } from "langchain/document_loaders/web/youtube";
