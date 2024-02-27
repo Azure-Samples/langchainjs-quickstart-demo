@@ -5,7 +5,7 @@ This demo explore the development process from idea to production, using a RAG-b
 
 The code comes in two versions:
 - [local prototype](src/prototype.js): uses FAISS and Ollama with llama2 model for completion and all-minilm-l6-v2 for embeddings
-- [Azure cloud version](src/azure.js): uses Azure AI Search and GPT-4 Turbo model for completion and text-embedding-ada-002 for embeddings
+- [Azure cloud version](src/azure.js): uses Azure AI Search and GPT-4 Turbo model for completion and text-embedding-3-large for embeddings
 
 ## Installation
 
@@ -34,8 +34,8 @@ For Azure OpenAI, you can [request access with this form](https://aka.ms/oaiappl
 First you need to create an Azure OpenAI instance. You can deploy a version on Azure Portal following [this guide](https://learn.microsoft.com/azure/ai-services/openai/how-to/create-resource?pivots=web-portal).
 
 In Azure AI Studio, you'll need to deploy these two models:
-- `text-embedding-ada-002` with a deployment name of `text-embedding-ada-002`
-- `gpt-4` version `1106-preview` (aka GPT-4 Turbo) with a deployment name of `gpt4-turbo`
+- `text-embedding-3-large` with a deployment name of `text-embedding-3-large`
+- `gpt-4` version `0125-preview` (aka GPT-4 Turbo) with a deployment name of `gpt4-turbo`
 
 > **Note**: GPT-4 Turbo is currently in preview and may not be available in all regions, see [this table](https://learn.microsoft.com/azure/ai-services/openai/concepts/models#gpt-4-and-gpt-4-turbo-preview-models) for region availability.
 
@@ -51,7 +51,7 @@ AZURE_AISEARCH_KEY=<your-aisearch-key>
 AZURE_OPENAI_API_KEY=<your-openai-key>
 AZURE_OPENAI_API_ENDPOINT=<your-openai-endpoint>
 AZURE_OPENAI_API_DEPLOYMENT_NAME="gpt4-turbo"
-AZURE_OPENAI_API_EMBEDDINGS_DEPLOYMENT_NAME="text-embedding-ada-002"
+AZURE_OPENAI_API_EMBEDDINGS_DEPLOYMENT_NAME="text-embedding-3-large"
 ```
 
 Then you can run:
