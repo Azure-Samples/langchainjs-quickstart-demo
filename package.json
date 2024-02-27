@@ -4,16 +4,16 @@
   "description": "",
   "private": true,
   "type": "module",
-  "main": "index.js",
+  "main": "src/prototype.js",
   "dependencies": {
     "@azure/search-documents": "^12.0.0",
-    "@langchain/azure-openai": "^0.0.1",
-    "@langchain/community": "^0.0.28",
+    "@langchain/azure-openai": "^0.0.2",
+    "@langchain/community": "^0.0.32",
     "dotenv": "^16.4.4",
     "faiss-node": "^0.5.1",
-    "langchain": "^0.1.18",
+    "langchain": "^0.1.21",
     "youtube-transcript": "^1.0.6",
-    "youtubei.js": "^5.8.0"
+    "youtubei.js": "^9.1.0"
   },
   "scripts": {
     "start": "node src/prototype.js",
