@@ -1,6 +1,6 @@
 # LangChain.js + Azure: A Generative AI App Journey
 
-Discover the journey of building a generative AI application using LangChain.js and Azure. This talk will explore the development process from idea to production, focusing on a RAG-based approach for a Q&A system using YouTube video transcripts. We'll demonstrate the local prototype and its transition to Azure for production.
+Discover the journey of building a generative AI application using LangChain.js and Azure. This talk will explore the development process from idea to production, focusing on a RAG-based approach for a Q&A system using YouTube video transcripts. We'll demonstrate how we built a local prototype using open-source LLMs and Ollama, and its transition to Azure for production. 
 
 ## Introduction - 5min
 
