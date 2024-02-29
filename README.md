@@ -12,7 +12,7 @@ The code comes in two versions:
 You need [Node.js](https://nodejs.org/en) and [Ollama](https://ollama.com/download) installed to run this demo.
 
 ```bash
-npm install
+npm install --legacy-peer-deps
 ollama pull llama2
 ollama pull all-minilm:l6-v2
 ```
