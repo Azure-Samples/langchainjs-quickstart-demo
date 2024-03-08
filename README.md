@@ -30,7 +30,7 @@ Either version can be run as an API using the [Azure Functions](https://azure.mi
 You need [Node.js](https://nodejs.org/en) and [Ollama](https://ollama.com/download) installed to run this demo.
 
 ```bash
-npm install --legacy-peer-deps
+npm install
 ollama pull llama2
 ollama pull all-minilm:l6-v2
 ```
