@@ -15,64 +15,71 @@ import {
 const YOUTUBE_VIDEO_URL = "https://www.youtube.com/watch?v=FZhbJZEgKQ4";
 const QUESTION = "What are the news about GPT-4 models?";
 
-// Load documents ------------------------------------------------------------
+export default async function* askYoutube(youtubeVideoUrl, question) {
+  youtubeVideoUrl ??= YOUTUBE_VIDEO_URL;
+  question ??= QUESTION;
 
-console.log("Loading documents...");
+  // Load documents ------------------------------------------------------------
 
-const loader = YoutubeLoader.createFromUrl(YOUTUBE_VIDEO_URL, {
-  language: "en",
-  addVideoInfo: true,
-});
-const rawDocuments = await loader.load();
-const splitter = new RecursiveCharacterTextSplitter({
-  chunkSize: 2000,
-  chunkOverlap: 400,
-});
-const documents = await splitter.splitDocuments(rawDocuments);
+  console.log("Loading documents...");
 
-// Init models and DB --------------------------------------------------------
+  const loader = YoutubeLoader.createFromUrl(youtubeVideoUrl, {
+    language: "en",
+    addVideoInfo: true,
+  });
+  const rawDocuments = await loader.load();
+  const splitter = new RecursiveCharacterTextSplitter({
+    chunkSize: 2000,
+    chunkOverlap: 400,
+  });
+  const documents = await splitter.splitDocuments(rawDocuments);
 
-console.log("Initializing models and DB...");
+  // Init models and DB --------------------------------------------------------
 
-const embeddings = new AzureOpenAIEmbeddings();
-const model = new AzureChatOpenAI();
-const vectorStore = new AzureAISearchVectorStore(embeddings, {
-  search: { type: AzureAISearchQueryType.SimilarityHybrid },
-});
+  console.log("Initializing models and DB...");
 
-// Search if documents already exist for the source video
-const videoId = YOUTUBE_VIDEO_URL.split("v=")[1];
-const indexedDocuments = await vectorStore.similaritySearch("*", 1, {
-  filterExpression: `metadata/source eq '${videoId}'`,
-});
+  const embeddings = new AzureOpenAIEmbeddings();
+  const model = new AzureChatOpenAI();
+  const vectorStore = new AzureAISearchVectorStore(embeddings, {
+    search: { type: AzureAISearchQueryType.SimilarityHybrid },
+  });
 
-if (indexedDocuments.length === 0) {
-  console.log("Embedding documents...");
-  await vectorStore.addDocuments(documents);
+  // Search if documents already exist for the source video
+  const videoId = youtubeVideoUrl.split("v=")[1];
+  const indexedDocuments = await vectorStore.similaritySearch("*", 1, {
+    filterExpression: `metadata/source eq '${videoId}'`,
+  });
+
+  if (indexedDocuments.length === 0) {
+    console.log("Embedding documents...");
+    await vectorStore.addDocuments(documents);
+  }
+
+  // Run the chain -------------------------------------------------------------
+
+  console.log("Running the chain...");
+
+  const questionAnsweringPrompt = ChatPromptTemplate.fromMessages([
+    ["system", "Answer the user's question using only the sources below:\n\n{context}"],
+    ["human", "{input}"],
+  ]);
+  const combineDocsChain = await createStuffDocumentsChain({
+    prompt: questionAnsweringPrompt,
+    llm: model,
+  });
+  const chain = await createRetrievalChain({
+    retriever: vectorStore.asRetriever(),
+    combineDocsChain,
+  });
+  const stream = await chain.stream({ input: question });
+
+  // Print the result ----------------------------------------------------------
+
+  console.log(`Answer for the question "${question}":\n`);
+  for await (const chunk of stream) {
+    process.stdout.write(chunk.answer ?? "");
+    if (chunk.answer)
+      yield chunk.answer;
+  }
+  console.log();
 }
-
-// Run the chain -------------------------------------------------------------
-
-console.log("Running the chain...");
-
-const questionAnsweringPrompt = ChatPromptTemplate.fromMessages([
-  ["system", "Answer the user's question using only the sources below:\n\n{context}"],
-  ["human", "{input}"],
-]);
-const combineDocsChain = await createStuffDocumentsChain({
-  prompt: questionAnsweringPrompt,
-  llm: model,
-});
-const chain = await createRetrievalChain({
-  retriever: vectorStore.asRetriever(),
-  combineDocsChain,
-});
-const stream = await chain.stream({ input: QUESTION });
-
-// Print the result ----------------------------------------------------------
-
-console.log(`Answer for the question "${QUESTION}":\n`);
-for await (const chunk of stream) {
-  process.stdout.write(chunk.answer ?? "");
-}
-console.log();

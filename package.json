@@ -1,11 +1,23 @@
 {
   "name": "langchainjs-quickstart-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Generative AI demo using Azure Functions and LangChain.js",
   "private": true,
   "type": "module",
-  "main": "src/local.js",
+  "main": "src/functions/*.js",
+  "scripts": {
+    "start": "func start",
+    "start:local": "node --input-type=module -e \"import ask from './src/local.js'; for await(let c of ask());\"",
+    "start:azure": "node --input-type=module -e \"import ask from './src/azure.js'; for await(let c of ask());\""
+  },
+  "keywords": [],
+  "author": {
+    "name": "Yohan Lasorsa",
+    "url": "https://twitter.com/sinedied"
+  },
+  "license": "MIT",
   "dependencies": {
+    "@azure/functions": "^4.3.0",
     "@azure/search-documents": "^12.0.0",
     "@langchain/azure-openai": "^0.0.4",
     "@langchain/community": "^0.0.41",
@@ -15,14 +27,7 @@
     "youtube-transcript": "^1.0.6",
     "youtubei.js": "^9.1.0"
   },
-  "scripts": {
-    "start": "node src/local.js",
-    "start:azure": "node src/azure.js"
-  },
-  "keywords": [],
-  "author": {
-    "name": "Yohan Lasorsa",
-    "url": "https://twitter.com/sinedied"
-  },
-  "license": "MIT"
+  "devDependencies": {
+    "azure-functions-core-tools": "^4.0.5530"
+  }
 }

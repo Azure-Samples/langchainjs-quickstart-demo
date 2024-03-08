@@ -15,3 +15,8 @@ logs
 .DS_Store
 faiss_store
 
+# Azure Functions artifacts
+bin
+obj
+appsettings.json
+local.settings.json
