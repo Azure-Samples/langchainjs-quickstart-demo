@@ -5,7 +5,7 @@ import askYoutubeLocal from "../local.js";
 import askYoutubeAzure from "../azure.js";
 
 async function ask(request, context) {
-  const body = await request.json();
+  const body = request.body ? await request.json() : undefined;
 
   try {
     // Use local or Azure implementation
@@ -16,7 +16,7 @@ async function ask(request, context) {
   
     return {
       body: createStream(chunks),
-      headers: { "Content-Type": "application/x-ndjson" },
+      headers: { "Content-Type": "text/plain" },
     };
   } catch (error) {
     context.error(error);
@@ -35,7 +35,7 @@ function createStream(chunks) {
 
   const stream = async () => {
     for await (const chunk of chunks) {
-      buffer.push(JSON.stringify(chunk) + "\n");
+      buffer.push(chunk);
     }
   
     // Signal end of stream
