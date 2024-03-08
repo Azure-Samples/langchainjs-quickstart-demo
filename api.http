@@ -1,1 +1,21 @@
-curl -X POST http://localhost:7071/api/ask -d '{"question": "Will GPT-4 Turbo be available on Azure?"}' -H "Content-Type: application/json"
+##################################################################
+# VS Code with REST Client extension is needed to use this file.
+# Download at: https://aka.ms/vscode/rest-client
+##################################################################
+
+# Default question and video
+curl http://localhost:7071/api/ask
+
+###
+
+# Custom question and default video
+curl -X POST http://localhost:7071/api/ask \
+  -H 'Content-Type: application/json' \
+  -d '{ "question": "Will GPT-4 Turbo be available on Azure?" }' 
+
+###
+
+# Custum question custom video
+curl -X POST http://localhost:7071/api/ask \
+  -H 'Content-Type: application/json' \
+  -d '{ "youtubeVideoUrl": "https://www.youtube.com/watch?v=nFVUPAEF-sw", "question": "Who gives this speech?" }'
