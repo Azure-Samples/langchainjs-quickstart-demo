@@ -1,6 +1,6 @@
+import "dotenv/config";
 import { Readable } from "node:stream";
 import { app } from '@azure/functions';
-import "dotenv/config";
 import askYoutubeLocal from "../local.js";
 import askYoutubeAzure from "../azure.js";
 
