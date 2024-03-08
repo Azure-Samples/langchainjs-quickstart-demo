@@ -9,7 +9,7 @@
   // Features to add to the dev container. More info: https://containers.dev/features.
   "features": {
     "ghcr.io/prulloac/devcontainer-features/ollama:1": {
-      "pull": "llama2"
+      "pull": "llama2,all-minilm:l6-v2"
     }
   },
 
