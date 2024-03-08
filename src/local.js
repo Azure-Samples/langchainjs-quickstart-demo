@@ -20,7 +20,7 @@ export function test() {
 export default async function* askYoutube(youtubeVideoUrl, question) {
   youtubeVideoUrl ??= YOUTUBE_VIDEO_URL;
   question ??= QUESTION;
-  
+
   console.log("--- Using local version ---");
 
   // Load documents ------------------------------------------------------------
@@ -69,7 +69,7 @@ export default async function* askYoutube(youtubeVideoUrl, question) {
 
   // Print the result ----------------------------------------------------------
 
-  console.log(`Answer for the question "${QUESTION}":\n`);
+  console.log(`Answer for the question "${question}" using "${youtubeVideoUrl}":\n`);
   for await (const chunk of stream) {
     process.stdout.write(chunk.answer ?? "");
     if (chunk.answer)
