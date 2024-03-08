@@ -21,6 +21,10 @@ The code comes in two versions:
 - [local prototype](src/local.js): uses FAISS and Ollama with LLaMa2 model for completion and all-minilm-l6-v2 for embeddings
 - [Azure cloud version](src/azure.js): uses Azure AI Search and GPT-4 Turbo model for completion and text-embedding-3-large for embeddings
 
+Either version can be run as an API using the [Azure Functions](https://azure.microsoft.com/services/functions) runtime.
+
+> **NOTE**: This sample using the new HTTP streaming support in Azure Functions that's currently in preview. You can find more information about this feature in the [blog post announcement](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-functions-support-for-http-streams-in-node-js-is-now-in/ba-p/4066575).
+
 ## Installation
 
 You need [Node.js](https://nodejs.org/en) and [Ollama](https://ollama.com/download) installed to run this demo.
@@ -34,7 +38,7 @@ ollama pull all-minilm:l6-v2
 ## Run the local prototype
 
 ```bash
-npm start
+npm run start:local
 ```
 
 ## Run the Azure version
@@ -73,6 +77,26 @@ Then you can run:
 ```bash
 npm run start:azure
 ```
+
+## Run the API version
+
+```bash
+npm start
+```
+
+Once the server is running, you can test the API in another terminal:
+
+```bash
+curl http://localhost:7071/api/ask --json '{ "question": "Will GPT-4 Turbo be available on Azure?" }'
+```
+
+By default, the API runs the local version. To run the Azure version, you need to set the `USE_AZURE` environment variable to `true`:
+
+```bash
+USE_AZURE=true npm start
+```
+
+> **Note**: The API respond as a stream of text. You can use the `curl` command with the `-N` option to disable buffering and see the response in real-time.
 
 ## Resources
 
