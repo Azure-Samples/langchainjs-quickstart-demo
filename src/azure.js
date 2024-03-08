@@ -19,6 +19,8 @@ export default async function* askYoutube(youtubeVideoUrl, question) {
   youtubeVideoUrl ??= YOUTUBE_VIDEO_URL;
   question ??= QUESTION;
 
+  console.log("--- Using Azure version ---");
+
   // Load documents ------------------------------------------------------------
 
   console.log("Loading documents...");
