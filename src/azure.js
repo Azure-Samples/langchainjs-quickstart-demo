@@ -70,14 +70,16 @@ export default async function* askYoutube(youtubeVideoUrl, question) {
     llm: model,
   });
   const chain = await createRetrievalChain({
-    retriever: vectorStore.asRetriever(),
+    retriever: vectorStore.asRetriever(undefined, {
+      filterExpression: `metadata/source eq '${videoId}'`,
+    }),
     combineDocsChain,
   });
   const stream = await chain.stream({ input: question });
 
   // Print the result ----------------------------------------------------------
 
-  console.log(`Answer for the question "${question}":\n`);
+  console.log(`Answer for the question "${question}" using "${youtubeVideoUrl}":\n`);
   for await (const chunk of stream) {
     process.stdout.write(chunk.answer ?? "");
     if (chunk.answer)
