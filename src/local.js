@@ -12,11 +12,6 @@ import { FaissStore } from "@langchain/community/vectorstores/faiss";
 const YOUTUBE_VIDEO_URL = "https://www.youtube.com/watch?v=FZhbJZEgKQ4";
 const QUESTION = "What are the news about GPT-4 models?";
 
-export function test() {
-  return new Promise(resolve => resolve(console.log('toto')));
-
-}
-
 export default async function* askYoutube(youtubeVideoUrl, question) {
   youtubeVideoUrl ??= YOUTUBE_VIDEO_URL;
   question ??= QUESTION;
