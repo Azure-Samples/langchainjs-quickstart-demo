@@ -1,22 +1,18 @@
-import "dotenv/config";
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
 import { createRetrievalChain } from "langchain/chains/retrieval";
 import { YoutubeLoader } from "langchain/document_loaders/web/youtube";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 
-import { ChatOllama } from "@langchain/community/chat_models/ollama";
-import { OllamaEmbeddings } from "@langchain/community/embeddings/ollama";
-import { FaissStore } from "@langchain/community/vectorstores/faiss";
-
-const YOUTUBE_VIDEO_URL = "https://www.youtube.com/watch?v=FZhbJZEgKQ4";
-const QUESTION = "What are the news about GPT-4 models?";
+import { AzureChatOpenAI } from "@langchain/azure-openai";
+import { AzureOpenAIEmbeddings } from "@langchain/azure-openai";
+import {
+  AzureAISearchVectorStore,
+  AzureAISearchQueryType,
+} from "@langchain/community/vectorstores/azure_aisearch";
 
 export default async function* askYoutube(youtubeVideoUrl, question) {
-  youtubeVideoUrl ??= YOUTUBE_VIDEO_URL;
-  question ??= QUESTION;
-
-  console.log("--- Using local version ---");
+  console.log("--- Using Azure version ---");
 
   // Load documents ------------------------------------------------------------
 
@@ -37,12 +33,22 @@ export default async function* askYoutube(youtubeVideoUrl, question) {
 
   console.log("Initializing models and DB...");
 
-  const embeddings = new OllamaEmbeddings({ model: "all-minilm:l6-v2" });
-  const model = new ChatOllama({ model: "llama2" });
-  const vectorStore = new FaissStore(embeddings, {});
+  const embeddings = new AzureOpenAIEmbeddings();
+  const model = new AzureChatOpenAI();
+  const vectorStore = new AzureAISearchVectorStore(embeddings, {
+    search: { type: AzureAISearchQueryType.SimilarityHybrid },
+  });
 
-  console.log("Embedding documents...");
-  vectorStore.addDocuments(documents);
+  // Search if documents already exist for the source video
+  const videoId = youtubeVideoUrl.split("v=")[1];
+  const indexedDocuments = await vectorStore.similaritySearch("*", 1, {
+    filterExpression: `metadata/source eq '${videoId}'`,
+  });
+
+  if (indexedDocuments.length === 0) {
+    console.log("Embedding documents...");
+    await vectorStore.addDocuments(documents);
+  }
 
   // Run the chain -------------------------------------------------------------
 
@@ -57,7 +63,9 @@ export default async function* askYoutube(youtubeVideoUrl, question) {
     llm: model,
   });
   const chain = await createRetrievalChain({
-    retriever: vectorStore.asRetriever(),
+    retriever: vectorStore.asRetriever(undefined, {
+      filterExpression: `metadata/source eq '${videoId}'`,
+    }),
     combineDocsChain,
   });
   const stream = await chain.stream({ input: question });
