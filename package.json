@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "type": "module",
-  "main": "src/prototype.js",
+  "main": "src/local.js",
   "dependencies": {
     "@azure/search-documents": "^12.0.0",
     "@langchain/azure-openai": "^0.0.2",
@@ -16,7 +16,7 @@
     "youtubei.js": "^9.1.0"
   },
   "scripts": {
-    "start": "node src/prototype.js",
+    "start": "node src/local.js",
     "start:azure": "node src/azure.js"
   },
   "keywords": [],
