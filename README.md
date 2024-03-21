@@ -1,6 +1,8 @@
 <div align="center">
 
-# 🦜️🔗 LangChain.js + Azure Quickstart Demo
+<img src="./icon.png" alt="" align="center" height="64" />
+
+# Ask YouTube: LangChain.js + Azure Quickstart
 
 [![Open project in GitHub Codespaces](https://img.shields.io/badge/Codespaces-Open-blue?style=flat-square&logo=github)](https://codespaces.new/Azure-Samples/langchainjs-quickstart-demo?hide_repo_select=true&ref=main)
 ![Node version](https://img.shields.io/badge/Node.js->=20-grass?style=flat-square)
