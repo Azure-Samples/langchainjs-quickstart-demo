@@ -10,7 +10,7 @@
 
 ⭐ If you like this sample, star it on GitHub — it helps a lot!
 
-[Installation](#installation) • [Run the local prototype](#run-the-local-prototype) • [Run the Azure version](#run-the-azure-version) • [Resources](#resources)
+[Installation](#installation) • [Run the local prototype](#run-the-local-prototype) • [Run the Azure version](#run-the-azure-version) • [Run the API version](#run-the-api-version) • [Resources](#resources)
 
 </div>
 
@@ -23,7 +23,7 @@ The code comes in two versions:
 
 Either version can be run as an API using the [Azure Functions](https://azure.microsoft.com/services/functions) runtime.
 
-> **NOTE**: This sample using the new HTTP streaming support in Azure Functions that's currently in preview. You can find more information about this feature in the [blog post announcement](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-functions-support-for-http-streams-in-node-js-is-now-in/ba-p/4066575).
+> **NOTE**: This sample uses the new HTTP streaming support in Azure Functions that's currently in preview. You can find more information about this feature in the [blog post announcement](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-functions-support-for-http-streams-in-node-js-is-now-in/ba-p/4066575).
 
 ## Installation
 
