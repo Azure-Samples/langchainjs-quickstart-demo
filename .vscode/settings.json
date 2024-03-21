@@ -4,6 +4,6 @@
   "azureFunctions.projectLanguage": "JavaScript",
   "azureFunctions.projectRuntime": "~4",
   "debug.internalConsoleOptions": "neverOpen",
-  "azureFunctions.projectLanguageModel": 4,
+  "azureFunctions.projectLanguageModel": 3,
   "azureFunctions.preDeployTask": "npm prune (functions)"
 }
