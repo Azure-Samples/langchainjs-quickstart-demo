@@ -1,5 +1,5 @@
 {
-  "name": "azure-functions-langchainjs-demo",
+  "name": "langchainjs-quickstart-demo",
   "version": "1.0.0",
   "description": "Generative AI demo using Azure Functions and LangChain.js",
   "private": true,
