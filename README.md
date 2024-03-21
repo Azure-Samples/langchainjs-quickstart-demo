@@ -12,7 +12,6 @@
 
 [Installaton](#installaton) • [Run the local prototype](#run-the-local-prototype) • [Run the Azure version](#run-the-azure-version) • [Resources](#resources)
 
-<hr>
 </div>
 
 Discover the journey of building a generative AI application using LangChain.js and Azure.
