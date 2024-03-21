@@ -1,4 +1,17 @@
+<div align="center">
+
 # 🦜️🔗 langchainjs-quickstart-demo
+
+[![Open project in GitHub Codespaces](https://img.shields.io/badge/Codespaces-Open-blue?style=flat-square&logo=github)](https://codespaces.new/Azure-Samples/langchainjs-quickstart-demo?hide_repo_select=true&ref=main)
+![Node version](https://img.shields.io/badge/Node.js->=20-grass?style=flat-square)
+[![License](https://img.shields.io/badge/License-MIT-orange?style=flat-square)](LICENSE)
+[![JavaScript](https://img.shields.io/badge/JavaScript-yellow?style=flat-square&logo=javascript&logoColor=white)](https://www.typescriptlang.org)
+<!-- [![Watch how to use this sample on YouTube](https://img.shields.io/badge/YouTube-Watch-d95652.svg?style=flat-square&logo=youtube)]() -->
+
+⭐ If you like this sample, star it on GitHub — it helps a lot!
+
+<hr>
+</div>
 
 Discover the journey of building a generative AI application using LangChain.js and Azure.
 This demo explore the development process from idea to production, using a RAG-based approach for a Q&A system based on YouTube video transcripts.
