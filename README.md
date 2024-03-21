@@ -10,6 +10,8 @@
 
 ⭐ If you like this sample, star it on GitHub — it helps a lot!
 
+[Installaton](#installaton) • [Run the local prototype](#run-the-local-prototype) • [Run the Azure version](#run-the-azure-version) • [Resources](#resources)
+
 <hr>
 </div>
 
@@ -30,13 +32,13 @@ ollama pull llama2
 ollama pull all-minilm:l6-v2
 ```
 
-## Running the local prototype
+## Run the local prototype
 
 ```bash
 npm start
 ```
 
-## Running the Azure version
+## Run the Azure version
 
 To run the Azure version, you need to have an Azure account and a subscription enabled for Azure OpenAI usage. If you don't have an Azure account, you can create a [free account](https://azure.microsoft.com/free/) to get started.
 
@@ -72,6 +74,17 @@ Then you can run:
 ```bash
 npm run start:azure
 ```
+
+## Resources
+
+If you want to learn more about the technologies used in this demo, check out the following resources:
+
+- [LangChain.js documentation](https://js.langchain.com)
+- [Generative AI For Beginners](https://github.com/microsoft/generative-ai-for-beginners)
+- [Azure OpenAI Service](https://learn.microsoft.com/azure/ai-services/openai/overview)
+- [Azure Cosmos DB for MongoDB vCore](https://learn.microsoft.com/azure/cosmos-db/mongodb/vcore/)
+- [Find more Azure AI samples](https://github.com/Azure-Samples/azureai-samples)
+
 ## Contributing
 
 This project welcomes contributions and suggestions. Most contributions require you to agree to a
