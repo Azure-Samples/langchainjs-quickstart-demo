@@ -10,7 +10,7 @@
 
 ⭐ If you like this sample, star it on GitHub — it helps a lot!
 
-[Installaton](#installaton) • [Run the local prototype](#run-the-local-prototype) • [Run the Azure version](#run-the-azure-version) • [Resources](#resources)
+[Installation](#installation) • [Run the local prototype](#run-the-local-prototype) • [Run the Azure version](#run-the-azure-version) • [Resources](#resources)
 
 </div>
 
