@@ -7,8 +7,8 @@
   "main": "src/functions/*.js",
   "scripts": {
     "start": "func start",
-    "start:local": "node --input-type=module -e \"import ask from './src/local.js'; for await(let c of ask());\"",
-    "start:azure": "node --input-type=module -e \"import ask from './src/azure.js'; for await(let c of ask());\""
+    "start:local": "node src/local.js",
+    "start:azure": "node src/azure.js"
   },
   "keywords": [],
   "author": {
