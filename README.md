@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🦜️🔗 langchainjs-quickstart-demo
+# 🦜️🔗 LangChain.js + Azure Quickstart Demo
 
 [![Open project in GitHub Codespaces](https://img.shields.io/badge/Codespaces-Open-blue?style=flat-square&logo=github)](https://codespaces.new/Azure-Samples/langchainjs-quickstart-demo?hide_repo_select=true&ref=main)
 ![Node version](https://img.shields.io/badge/Node.js->=20-grass?style=flat-square)
