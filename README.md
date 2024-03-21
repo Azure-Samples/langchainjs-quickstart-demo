@@ -32,7 +32,13 @@ Either version can be run as an API using the [Azure Functions](https://azure.mi
 
 You need [Node.js](https://nodejs.org/en) and [Ollama](https://ollama.com/download) installed to run this demo.
 
-After you complete the installation, clone this repository and run the following commands in a terminal inside the project directory:
+After you complete the installation, the next step is to clone this repository on your machine:
+
+1. [**Fork**](https://github.com/Azure-Samples/langchainjs-quickstart-demo/fork) the project to create your own copy of this repository.
+2. Select the **Code** button, then the **Local** tab, and copy the URL of your forked repository.
+3. Open a terminal and run this command to clone the repo: `git clone <your-repo-url>`
+
+Then open a terminal inside the project directory and run the following commands:
 
 ```bash
 npm install
