@@ -1,8 +1,11 @@
 import "dotenv/config";
 import { Readable } from "node:stream";
 import { app } from '@azure/functions';
-import askYoutubeLocal from "../local.js";
-import askYoutubeAzure from "../azure.js";
+import askYoutubeLocal from "./lib/local.js";
+import askYoutubeAzure from "./lib/azure.js";
+
+const YOUTUBE_VIDEO_URL = "https://www.youtube.com/watch?v=FZhbJZEgKQ4";
+const QUESTION = "What are the news about GPT-4 models?";
 
 async function ask(request, context) {
   const body = request.body ? await request.json() : undefined;
@@ -12,7 +15,10 @@ async function ask(request, context) {
     const useAzure = process.env.USE_AZURE === "true";
     const askYoutube = useAzure ? askYoutubeAzure : askYoutubeLocal;
 
-    const chunks = await askYoutube(body?.youtubeVideoUrl, body?.question);
+    const chunks = await askYoutube(
+      body?.youtubeVideoUrl || YOUTUBE_VIDEO_URL,
+      body?.question || QUESTION
+    );
   
     return {
       body: createStream(chunks),
