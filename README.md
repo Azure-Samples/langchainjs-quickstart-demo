@@ -105,7 +105,8 @@ By default, the API runs the local version. To run the Azure version, you need t
 USE_AZURE=true npm start
 ```
 
-> **Note**: The API respond as a stream of text. You can use the `curl` command with the `-N` option to disable buffering and see the response in real-time.
+> [!TIP]
+> The API respond as a stream of text. You can use the `curl` command with the `-N` option to disable buffering and see the response in real-time.
 
 ## Resources
 
