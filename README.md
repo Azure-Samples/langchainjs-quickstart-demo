@@ -10,7 +10,7 @@
 
 ⭐ If you like this sample, star it on GitHub — it helps a lot!
 
-[Installation](#installation) • [Run the local prototype](#run-the-local-prototype) • [Run the Azure version](#run-the-azure-version) • [Run the API version](#run-the-api-version) • [Resources](#resources)
+[Installation](#installation) • [Run the demo](#run-the-demo) • [Resources](#resources)
 
 </div>
 
@@ -23,11 +23,14 @@ The code comes in two versions:
 
 Either version can be run as an API using the [Azure Functions](https://azure.microsoft.com/services/functions) runtime.
 
-> **NOTE**: This sample uses the new HTTP streaming support in Azure Functions that's currently in preview. You can find more information about this feature in the [blog post announcement](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-functions-support-for-http-streams-in-node-js-is-now-in/ba-p/4066575).
+> [!NOTE]
+> This sample uses the new HTTP streaming support in Azure Functions that's currently in preview. You can find more information about this feature in the [blog post announcement](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-functions-support-for-http-streams-in-node-js-is-now-in/ba-p/4066575).
 
 ## Installation
 
 You need [Node.js](https://nodejs.org/en) and [Ollama](https://ollama.com/download) installed to run this demo.
+
+After you complete the installation, clone this repository and run the following commands in a terminal inside the project directory:
 
 ```bash
 npm install
@@ -35,19 +38,25 @@ ollama pull llama2
 ollama pull all-minilm:l6-v2
 ```
 
-## Run the local prototype
+This will install the required dependencies and download the models needed for the demo.
+
+## Run the demo
+
+This demo comes in three versions: a local prototype, an Azure cloud version, and an API version using Azure Functions. The fastest way to get started is to run the local prototype.
+
+### Local prototype
 
 ```bash
 npm run start:local
 ```
 
-## Run the Azure version
+### Azure version
 
 To run the Azure version, you need to have an Azure account and a subscription enabled for Azure OpenAI usage. If you don't have an Azure account, you can create a [free account](https://azure.microsoft.com/free/) to get started.
 
 For Azure OpenAI, you can [request access with this form](https://aka.ms/oaiapply).
 
-### Create the Azure resources
+#### Create the Azure resources
 
 First you need to create an Azure OpenAI instance. You can deploy a version on Azure Portal following [this guide](https://learn.microsoft.com/azure/ai-services/openai/how-to/create-resource?pivots=web-portal).
 
@@ -59,7 +68,7 @@ In Azure AI Studio, you'll need to deploy these two models:
 
 You'll also need to have an Azure AI Search instance running. You can deploy a free version on Azure Portal without any cost, following [this guide](https://learn.microsoft.com/azure/search/search-create-service-portal).
 
-### Set up the environment
+#### Set up the environment
 
 You need to create a `.env` file with the following content:
 
@@ -78,7 +87,7 @@ Then you can run:
 npm run start:azure
 ```
 
-## Run the API version
+### API version
 
 ```bash
 npm start
