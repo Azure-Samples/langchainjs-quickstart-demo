@@ -7,8 +7,9 @@
 [![Open project in GitHub Codespaces](https://img.shields.io/badge/Codespaces-Open-blue?style=flat-square&logo=github)](https://codespaces.new/Azure-Samples/langchainjs-quickstart-demo?hide_repo_select=true&ref=main)
 ![Node version](https://img.shields.io/badge/Node.js->=20-grass?style=flat-square)
 [![License](https://img.shields.io/badge/License-MIT-orange?style=flat-square)](LICENSE)
-[![JavaScript](https://img.shields.io/badge/JavaScript-yellow?style=flat-square&logo=javascript&logoColor=white)](https://www.typescriptlang.org)
-<!-- [![Watch how to use this sample on YouTube](https://img.shields.io/badge/YouTube-Watch-d95652.svg?style=flat-square&logo=youtube)]() -->
+![JavaScript](https://img.shields.io/badge/JavaScript-yellow?style=flat-square&logo=javascript&logoColor=white)
+[![Watch how to use this sample on YouTube](https://img.shields.io/badge/YouTube-d95652.svg?style=flat-square&logo=youtube)](https://www.youtube.com/watch?v=nYXSKs8qMY8&list=PLI7iePan8aH7FRDmefj-NAnoxM9V0USZm&index=3)
+
 
 ⭐ If you like this sample, star it on GitHub — it helps a lot!
 
