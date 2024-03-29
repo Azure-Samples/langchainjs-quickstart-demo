@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./icon.png" alt="" align="center" height="64" />
+<img src="./docs/images/icon.png" alt="" align="center" height="64" />
 
 # Ask YouTube: LangChain.js + Azure Quickstart
 
@@ -10,15 +10,18 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-yellow?style=flat-square&logo=javascript&logoColor=white)
 [![Watch how to use this sample on YouTube](https://img.shields.io/badge/YouTube-d95652.svg?style=flat-square&logo=youtube)](https://www.youtube.com/watch?v=nYXSKs8qMY8&list=PLI7iePan8aH7FRDmefj-NAnoxM9V0USZm&index=3)
 
-
 ⭐ If you like this sample, star it on GitHub — it helps a lot!
 
-[Installation](#installation) • [Run the demo](#run-the-demo) • [Resources](#resources)
+[Overview](#overview) • [Installation](#installation) • [Run the demo](#run-the-demo) • [Resources](#resources)
 
 </div>
 
 Discover the journey of building a generative AI application using LangChain.js and Azure.
-This demo explore the development process from idea to production, using a RAG-based approach for a Q&A system based on YouTube video transcripts.
+This demo explores the development process from idea to production, using a RAG-based approach for a Q&A system based on YouTube video transcripts.
+
+## Overview
+
+This application allows to ask text-based questions about a YouTube video, and uses the transcript of the video to generate responses.
 
 The code comes in two versions:
 - [local prototype](src/local.js): uses FAISS and Ollama with LLaMa2 model for completion and all-minilm-l6-v2 for embeddings
@@ -29,6 +32,10 @@ Either version can be run as an API using the [Azure Functions](https://azure.mi
 > [!NOTE]
 > This sample uses the new HTTP streaming support in Azure Functions that's currently in preview. You can find more information about this feature in the [blog post announcement](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-functions-support-for-http-streams-in-node-js-is-now-in/ba-p/4066575).
 
+<div align="center">
+  <img src="./docs/images/architecture.drawio.png" alt="Application architecture" width="640px" />
+</div>
+
 ## Installation
 
 You need [Node.js](https://nodejs.org/en) and [Ollama](https://ollama.com/download) installed to run this demo.
@@ -36,7 +43,10 @@ You need [Node.js](https://nodejs.org/en) and [Ollama](https://ollama.com/downlo
 After you complete the installation, the next step is to clone this repository on your machine:
 
 1. [**Fork**](https://github.com/Azure-Samples/langchainjs-quickstart-demo/fork) the project to create your own copy of this repository.
-2. Select the **Code** button, then the **Local** tab, and copy the URL of your forked repository.
+2. On your forked repository, select the **Code** button, then the **Local** tab, and copy the URL of your forked repository.
+    <div align="center">
+      <img src="./docs/images/clone-url.png" alt="Screenshot showing how to copy the repository URL" width="400px" />
+    </div>
 3. Open a terminal and run this command to clone the repo: `git clone <your-repo-url>`
 
 Then open a terminal inside the project directory and run the following commands:
@@ -126,7 +136,8 @@ If you want to learn more about the technologies used in this demo, check out th
 - [Generative AI For Beginners](https://github.com/microsoft/generative-ai-for-beginners)
 - [Azure OpenAI Service](https://learn.microsoft.com/azure/ai-services/openai/overview)
 - [Azure Cosmos DB for MongoDB vCore](https://learn.microsoft.com/azure/cosmos-db/mongodb/vcore/)
-- [Find more Azure AI samples](https://github.com/Azure-Samples/azureai-samples)
+
+You can also find [more Azure AI samples here](https://github.com/Azure-Samples/azureai-samples).
 
 ## Contributing
 
