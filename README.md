@@ -135,7 +135,7 @@ If you want to learn more about the technologies used in this demo, check out th
 - [LangChain.js documentation](https://js.langchain.com)
 - [Generative AI For Beginners](https://github.com/microsoft/generative-ai-for-beginners)
 - [Azure OpenAI Service](https://learn.microsoft.com/azure/ai-services/openai/overview)
-- [Azure Cosmos DB for MongoDB vCore](https://learn.microsoft.com/azure/cosmos-db/mongodb/vcore/)
+- [Azure AI Search](https://learn.microsoft.com/azure/search/)
 
 You can also find [more Azure AI samples here](https://github.com/Azure-Samples/azureai-samples).
 
