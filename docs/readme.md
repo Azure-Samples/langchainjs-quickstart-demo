@@ -15,7 +15,9 @@ description: Discover the journey of building a generative AI application using 
 
 <!-- Learn samples onboarding: https://review.learn.microsoft.com/en-us/help/contribute/samples/process/onboarding?branch=main -->
 
-This sample explores the development journey of building a generative AI application using LangChain.js and Azure, from idea to production. This demo uses a RAG-based approach for a Q&A system based on YouTube video transcripts.## Overview
+This sample explores the development journey of building a generative AI application using LangChain.js and Azure, from idea to production. This demo uses a RAG-based approach for a Q&A system based on YouTube video transcripts.
+
+## Overview
 
 This application allows to ask text-based questions about a YouTube video, and uses the transcript of the video to generate responses.
 
