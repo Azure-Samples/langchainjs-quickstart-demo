@@ -81,7 +81,7 @@ First you need to create an Azure OpenAI instance. You can deploy a version on A
 
 In Azure AI Studio, you'll need to deploy these two models:
 - `text-embedding-3-large` with a deployment name of `text-embedding-3-large`
-- `gpt-4` version `0125-preview` (aka GPT-4 Turbo) with a deployment name of `gpt4-turbo`
+- `gpt-4` version `0125-preview` (aka GPT-4 Turbo) with a deployment name of `gpt-4-turbo`
 
 > [!IMPORTANT]
 > GPT-4 Turbo is currently in preview and may not be available in all regions, see [this table](https://learn.microsoft.com/azure/ai-services/openai/concepts/models#gpt-4-and-gpt-4-turbo-preview-models) for region availability.
@@ -97,7 +97,7 @@ AZURE_AISEARCH_ENDPOINT=https://<your-service-name>.search.windows.net
 AZURE_AISEARCH_KEY=<your-aisearch-key>
 AZURE_OPENAI_API_KEY=<your-openai-key>
 AZURE_OPENAI_API_ENDPOINT=<your-openai-endpoint>
-AZURE_OPENAI_API_DEPLOYMENT_NAME="gpt4-turbo"
+AZURE_OPENAI_API_DEPLOYMENT_NAME="gpt-4-turbo"
 AZURE_OPENAI_API_EMBEDDINGS_DEPLOYMENT_NAME="text-embedding-3-large"
 ```
 
