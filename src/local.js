@@ -32,11 +32,11 @@ const documents = await splitter.splitDocuments(rawDocuments);
 console.log("Initializing models and DB...");
 
 const embeddings = new OllamaEmbeddings({ model: "all-minilm:l6-v2" });
-const model = new ChatOllama({ model: "llama2" });
+const model = new ChatOllama({ model: "mistral" });
 const vectorStore = new FaissStore(embeddings, {});
 
 console.log("Embedding documents...");
-vectorStore.addDocuments(documents);
+await vectorStore.addDocuments(documents);
 
 // Run the chain -------------------------------------------------------------
 

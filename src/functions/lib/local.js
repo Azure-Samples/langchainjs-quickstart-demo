@@ -35,7 +35,7 @@ export default async function* askYoutube(youtubeVideoUrl, question) {
   const vectorStore = new FaissStore(embeddings, {});
 
   console.log("Embedding documents...");
-  vectorStore.addDocuments(documents);
+  await vectorStore.addDocuments(documents);
 
   // Run the chain -------------------------------------------------------------
 
