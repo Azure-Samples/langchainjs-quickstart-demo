@@ -35,9 +35,10 @@ async function ask(request, context) {
 }
 
 function createStream(chunks) {
-  const buffer = new Readable();
-  // We must implement the _read method, but we don't need to do anything
-  buffer._read = () => {};
+  const buffer = new Readable({
+    // We must implement the read method, but we don't need to do anything
+    read() {}
+  });
 
   const stream = async () => {
     for await (const chunk of chunks) {
