@@ -22,8 +22,8 @@ const loader = YoutubeLoader.createFromUrl(YOUTUBE_VIDEO_URL, {
 });
 const rawDocuments = await loader.load();
 const splitter = new RecursiveCharacterTextSplitter({
-  chunkSize: 2000,
-  chunkOverlap: 400,
+  chunkSize: 1500,
+  chunkOverlap: 200,
 });
 const documents = await splitter.splitDocuments(rawDocuments);
 
