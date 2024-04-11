@@ -19,8 +19,8 @@
   "dependencies": {
     "@azure/functions": "^4.3.0",
     "@azure/search-documents": "^12.0.0",
-    "@langchain/azure-openai": "^0.0.4",
-    "@langchain/community": "^0.0.41",
+    "@langchain/azure-openai": "^0.0.7",
+    "@langchain/community": "^0.0.46",
     "dotenv": "^16.4.4",
     "faiss-node": "^0.5.1",
     "langchain": "^0.1.21",
