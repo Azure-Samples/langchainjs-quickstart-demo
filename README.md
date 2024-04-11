@@ -14,6 +14,8 @@
 
 [Overview](#overview) • [Installation](#installation) • [Run the demo](#run-the-demo) • [Resources](#resources)
 
+![Animation showing the app in action](./docs/images/demo.gif)
+
 </div>
 
 Discover the journey of building a generative AI application using LangChain.js and Azure.
