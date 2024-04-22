@@ -20,12 +20,11 @@
     "@azure/functions": "^4.3.0",
     "@azure/search-documents": "^12.0.0",
     "@langchain/azure-openai": "^0.0.7",
-    "@langchain/community": "^0.0.46",
+    "@langchain/community": "^0.0.50",
     "dotenv": "^16.4.4",
     "faiss-node": "^0.5.1",
-    "langchain": "^0.1.21",
-    "youtube-transcript": "github:sinedied/youtube-transcript#a10a073ac325b3b88018f321fa1bc5d62fa69b1c",
-    "youtubei.js": "^9.1.0"
+    "langchain": "^0.1.34",
+    "youtubei.js": "^9.3.0"
   },
   "devDependencies": {
     "azure-functions-core-tools": "^4.0.5530"
