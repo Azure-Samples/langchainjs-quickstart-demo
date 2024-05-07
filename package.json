@@ -24,6 +24,7 @@
     "dotenv": "^16.4.4",
     "faiss-node": "^0.5.1",
     "langchain": "^0.1.34",
+    "youtube-transcript": "^1.2.1",
     "youtubei.js": "^9.3.0"
   },
   "devDependencies": {
