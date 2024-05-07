@@ -21,7 +21,7 @@ async function ask(request, context) {
     );
   
     return {
-      body: createStream(chunks),
+      body: Readable.from(chunks),
       headers: { "Content-Type": "text/plain" },
     };
   } catch (error) {
@@ -32,27 +32,6 @@ async function ask(request, context) {
       body: "Service has failed to process the request. Please try again later.",
     };
   }
-}
-
-function createStream(chunks) {
-  const buffer = new Readable({
-    // We must implement the read method, but we don't need to do anything
-    read() {}
-  });
-
-  const stream = async () => {
-    for await (const chunk of chunks) {
-      buffer.push(chunk);
-    }
-  
-    // Signal end of stream
-    buffer.push(null);
-  }
-    
-  // Do not await to let the promise run in the background
-  stream();
-
-  return buffer;
 }
 
 app.setup({ enableHttpStream: true });
