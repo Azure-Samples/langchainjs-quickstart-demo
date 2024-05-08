@@ -118,7 +118,9 @@ npm start
 Once the server is running, you can test the API in another terminal:
 
 ```bash
-curl http://localhost:7071/api/ask --json '{ "question": "Will GPT-4 Turbo be available on Azure?" }'
+curl -N http://localhost:7071/api/ask \
+  -H 'Content-Type: application/json' \
+  -d '{ "question": "Will GPT-4 Turbo be available on Azure?" }' 
 ```
 
 By default, the API runs the local version. To run the Azure version, you need to set the `USE_AZURE` environment variable to `true`:
@@ -126,9 +128,6 @@ By default, the API runs the local version. To run the Azure version, you need t
 ```bash
 USE_AZURE=true npm start
 ```
-
-> [!TIP]
-> The API respond as a stream of text. You can use the `curl` command with the `-N` option to disable buffering and see the response in real-time.
 
 ## Resources
 
