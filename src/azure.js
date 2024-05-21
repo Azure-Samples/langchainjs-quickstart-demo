@@ -5,8 +5,7 @@ import { YoutubeLoader } from "langchain/document_loaders/web/youtube";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 
-import { AzureChatOpenAI } from "@langchain/azure-openai";
-import { AzureOpenAIEmbeddings } from "@langchain/azure-openai";
+import { AzureChatOpenAI, AzureOpenAIEmbeddings } from "@langchain/openai";
 import {
   AzureAISearchVectorStore,
   AzureAISearchQueryType,

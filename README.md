@@ -101,6 +101,7 @@ AZURE_OPENAI_API_KEY=<your-openai-key>
 AZURE_OPENAI_API_ENDPOINT=<your-openai-endpoint>
 AZURE_OPENAI_API_DEPLOYMENT_NAME="gpt-4-turbo"
 AZURE_OPENAI_API_EMBEDDINGS_DEPLOYMENT_NAME="text-embedding-3-large"
+AZURE_OPENAI_API_VERSION="2024-02-01"
 ```
 
 Then you can run:

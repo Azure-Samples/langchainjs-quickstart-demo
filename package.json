@@ -19,11 +19,11 @@
   "dependencies": {
     "@azure/functions": "^4.3.0",
     "@azure/search-documents": "^12.0.0",
-    "@langchain/azure-openai": "^0.0.8",
-    "@langchain/community": "^0.0.55",
+    "@langchain/community": "^0.2.0",
+    "@langchain/openai": "^0.0.33",
     "dotenv": "^16.4.4",
     "faiss-node": "^0.5.1",
-    "langchain": "^0.1.34",
+    "langchain": "^0.2.0",
     "youtube-transcript": "^1.2.1",
     "youtubei.js": "^9.3.0"
   },
