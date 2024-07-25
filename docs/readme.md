@@ -24,7 +24,7 @@ This sample explores the development journey of building a generative AI applica
 This application allows to ask text-based questions about a YouTube video, and uses the transcript of the video to generate responses.
 
 The code comes in two versions:
-- [local prototype](src/local.js): uses FAISS and Ollama with LLaMa3 model for completion and all-minilm-l6-v2 for embeddings
+- [local prototype](src/local.js): uses FAISS and Ollama with Phi-3 model for completion and all-minilm-l6-v2 for embeddings
 - [Azure cloud version](src/azure.js): uses Azure AI Search and GPT-4 Turbo model for completion and text-embedding-3-large for embeddings
 
 Either version can be run as an API using the [Azure Functions](https://azure.microsoft.com/services/functions) runtime.
@@ -64,7 +64,7 @@ After you complete the installation of the required tools, the next step is to c
 5. Run the following commands:
     ```bash
     npm install
-    ollama pull llama3
+    ollama pull phi3
     ollama pull all-minilm:l6-v2
     ```
 
