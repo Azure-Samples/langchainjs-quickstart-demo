@@ -31,7 +31,7 @@ export default async function* askYoutube(youtubeVideoUrl, question) {
   console.log("Initializing models and DB...");
 
   const embeddings = new OllamaEmbeddings({ model: "all-minilm:l6-v2" });
-  const model = new ChatOllama({ model: "phi3" });
+  const model = new ChatOllama({ model: "llama3" });
   const vectorStore = new FaissStore(embeddings, {});
 
   console.log("Embedding documents...");
