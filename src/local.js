@@ -1,6 +1,5 @@
 import "dotenv/config";
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
-import { createRetrievalChain } from "langchain/chains/retrieval";
 import { YoutubeLoader } from "@langchain/community/document_loaders/web/youtube";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
@@ -46,20 +45,20 @@ const questionAnsweringPrompt = ChatPromptTemplate.fromMessages([
   ["system", "Answer the user's question using only the sources below:\n\n{context}"],
   ["human", "{input}"],
 ]);
-const combineDocsChain = await createStuffDocumentsChain({
+const retriever = vectorStore.asRetriever()
+const ragChain = await createStuffDocumentsChain({
   prompt: questionAnsweringPrompt,
   llm: model,
 });
-const chain = await createRetrievalChain({
-  retriever: vectorStore.asRetriever(),
-  combineDocsChain,
+const stream = await ragChain.stream({
+  input: QUESTION,
+  context: await retriever.invoke(QUESTION)
 });
-const stream = await chain.stream({ input: QUESTION });
 
 // Print the result ----------------------------------------------------------
 
 console.log(`Answer for the question "${QUESTION}":\n`);
 for await (const chunk of stream) {
-  process.stdout.write(chunk.answer ?? "");
+  process.stdout.write(chunk ?? "");
 }
 console.log();
