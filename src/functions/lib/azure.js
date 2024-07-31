@@ -4,10 +4,7 @@ import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 
 import { AzureChatOpenAI, AzureOpenAIEmbeddings } from "@langchain/openai";
-import {
-  AzureAISearchVectorStore,
-  AzureAISearchQueryType,
-} from "@langchain/community/vectorstores/azure_aisearch";
+import { AzureAISearchVectorStore } from "@langchain/community/vectorstores/azure_aisearch";
 
 export default async function* askYoutube(youtubeVideoUrl, question) {
   console.log("--- Using Azure version ---");
@@ -33,9 +30,7 @@ export default async function* askYoutube(youtubeVideoUrl, question) {
 
   const embeddings = new AzureOpenAIEmbeddings();
   const model = new AzureChatOpenAI();
-  const vectorStore = new AzureAISearchVectorStore(embeddings, {
-    search: { type: AzureAISearchQueryType.SimilarityHybrid },
-  });
+  const vectorStore = new AzureAISearchVectorStore(embeddings, {});
 
   // Search if documents already exist for the source video
   const videoId = youtubeVideoUrl.split("v=")[1];
@@ -72,9 +67,8 @@ export default async function* askYoutube(youtubeVideoUrl, question) {
 
   console.log(`Answer for the question "${question}" using "${youtubeVideoUrl}":\n`);
   for await (const chunk of stream) {
-    process.stdout.write(chunk.answer ?? "");
-    if (chunk.answer)
-      yield chunk.answer;
+    process.stdout.write(chunk ?? "");
+    yield chunk ?? "";
   }
   console.log();
 }

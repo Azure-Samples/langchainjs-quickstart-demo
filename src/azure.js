@@ -5,10 +5,7 @@ import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 
 import { AzureChatOpenAI, AzureOpenAIEmbeddings } from "@langchain/openai";
-import {
-  AzureAISearchVectorStore,
-  AzureAISearchQueryType,
-} from "@langchain/community/vectorstores/azure_aisearch";
+import { AzureAISearchVectorStore } from "@langchain/community/vectorstores/azure_aisearch";
 
 const YOUTUBE_VIDEO_URL = "https://www.youtube.com/watch?v=FZhbJZEgKQ4";
 const QUESTION = "What are the news about GPT-4 models?";
@@ -34,9 +31,7 @@ console.log("Initializing models and DB...");
 
 const embeddings = new AzureOpenAIEmbeddings();
 const model = new AzureChatOpenAI();
-const vectorStore = new AzureAISearchVectorStore(embeddings, {
-  search: { type: AzureAISearchQueryType.SimilarityHybrid },
-});
+const vectorStore = new AzureAISearchVectorStore(embeddings, {});
 
 // Search if documents already exist for the source video
 const videoId = YOUTUBE_VIDEO_URL.split("v=")[1];
@@ -71,6 +66,6 @@ const stream = await ragChain.stream({
 
 console.log(`Answer for the question "${QUESTION}":\n`);
 for await (const chunk of stream) {
-  process.stdout.write(chunk.answer ?? "");
+  process.stdout.write(chunk ?? "");
 }
 console.log();
