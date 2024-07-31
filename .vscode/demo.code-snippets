@@ -28,7 +28,7 @@
 		"prefix": "newai",
     "scope": "javascript",
 		"body": [
-			"new AzureAISearchVectorStore(embeddings);"
+			"new AzureAISearchVectorStore(embeddings, {});"
 		],
 		"description": ""
 	},
