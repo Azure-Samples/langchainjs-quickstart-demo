@@ -5,5 +5,7 @@
   "azureFunctions.projectRuntime": "~4",
   "debug.internalConsoleOptions": "neverOpen",
   "azureFunctions.projectLanguageModel": 3,
-  "azureFunctions.preDeployTask": "npm prune (functions)"
+  "azureFunctions.preDeployTask": "npm prune (functions)",
+  "code-runner.clearPreviousOutput": true,
+  "code-runner.saveFileBeforeRun": true,
 }
