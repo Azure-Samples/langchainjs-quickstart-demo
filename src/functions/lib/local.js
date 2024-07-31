@@ -3,7 +3,7 @@ import { YoutubeLoader } from "@langchain/community/document_loaders/web/youtube
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 
-import { ChatOllama } from "@langchain/community/chat_models/ollama";
+import { ChatOllama } from "@langchain/ollama";
 import { OllamaEmbeddings } from "@langchain/community/embeddings/ollama";
 import { FaissStore } from "@langchain/community/vectorstores/faiss";
 
