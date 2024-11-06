@@ -59,8 +59,8 @@ export default async function* askYoutube(youtubeVideoUrl, question) {
     llm: model,
   });
   const stream = await ragChain.stream({
-    input: QUESTION,
-    context: await retriever.invoke(QUESTION)
+    input: question,
+    context: await retriever.invoke(question)
   });
 
   // Print the result ----------------------------------------------------------
