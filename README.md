@@ -135,6 +135,7 @@ USE_AZURE=true npm start
 If you want to learn more about the technologies used in this demo, check out the following resources:
 
 - [LangChain.js documentation](https://js.langchain.com)
+- [Generative AI with JavaScript](https://github.com/microsoft/generative-ai-with-javascript)
 - [Generative AI For Beginners](https://github.com/microsoft/generative-ai-for-beginners)
 - [Azure OpenAI Service](https://learn.microsoft.com/azure/ai-services/openai/overview)
 - [Azure AI Search](https://learn.microsoft.com/azure/search/)
