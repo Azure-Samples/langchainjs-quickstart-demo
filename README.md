@@ -56,7 +56,7 @@ Then open a terminal inside the project directory and run the following commands
 ```bash
 npm install
 ollama pull llama3
-ollama pull all-minilm:l6-v2
+ollama pull nomic-embed-text
 ```
 
 This will install the required dependencies and download the models needed for the demo.

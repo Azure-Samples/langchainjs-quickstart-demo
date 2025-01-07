@@ -65,7 +65,7 @@ After you complete the installation of the required tools, the next step is to c
     ```bash
     npm install
     ollama pull llama3
-    ollama pull all-minilm:l6-v2
+    ollama pull nomic-embed-text
     ```
 
     This will install the required dependencies and download the models needed for the demo.
