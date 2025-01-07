@@ -4,8 +4,7 @@ import { YoutubeLoader } from "@langchain/community/document_loaders/web/youtube
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 
-import { ChatOllama } from "@langchain/ollama";
-import { OllamaEmbeddings } from "@langchain/community/embeddings/ollama";
+import { ChatOllama, OllamaEmbeddings } from "@langchain/ollama";
 import { FaissStore } from "@langchain/community/vectorstores/faiss";
 
 const YOUTUBE_VIDEO_URL = "https://www.youtube.com/watch?v=FZhbJZEgKQ4";
