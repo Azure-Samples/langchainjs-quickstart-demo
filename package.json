@@ -26,7 +26,7 @@
     "faiss-node": "^0.5.1",
     "langchain": "^0.3.10",
     "youtube-transcript": "^1.2.1",
-    "youtubei.js": "^9.4.0"
+    "youtubei.js": "^12.2.0"
   },
   "devDependencies": {
     "azure-functions-core-tools": "^4.0.5530"
