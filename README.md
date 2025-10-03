@@ -5,6 +5,7 @@
 # Ask YouTube: LangChain.js + Azure Quickstart
 
 [![Open project in GitHub Codespaces](https://img.shields.io/badge/Codespaces-Open-blue?style=flat-square&logo=github)](https://codespaces.new/Azure-Samples/langchainjs-quickstart-demo?hide_repo_select=true&ref=main)
+[![Join Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Community-blue?style=flat-square&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 ![Node version](https://img.shields.io/badge/Node.js->=20-grass?style=flat-square)
 [![License](https://img.shields.io/badge/License-MIT-orange?style=flat-square)](LICENSE)
 ![JavaScript](https://img.shields.io/badge/JavaScript-yellow?style=flat-square&logo=javascript&logoColor=white)
@@ -141,6 +142,16 @@ If you want to learn more about the technologies used in this demo, check out th
 - [Azure AI Search](https://learn.microsoft.com/azure/search/)
 
 You can also find [more Azure AI samples here](https://github.com/Azure-Samples/azureai-samples).
+
+## Getting Help
+
+If you get stuck or have any questions about building AI apps, join:
+
+[![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
+
+If you have product feedback or errors while building visit:
+
+[![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ## Contributing
 
